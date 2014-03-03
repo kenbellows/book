@@ -39,7 +39,7 @@ TODO List
           with a link to a hosted copy of the link is allowed. Any text is
           allowed here. If it's not recognized as a known license, it will
           simply be faithfully reproduced.
-          * Feature Idea: auto-parse CC abbreviations and add CC-3.0 links;
+          * Feature Idea: auto-parse CC abbreviations and add CC-4.0 links;
             could do the same with, e.g., GPL, LGPL, MIT, Apache, ...
         2. Use the symbol `:all_rights_reserved` to generate the standard "All
           Rights Reserved" text:

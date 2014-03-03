@@ -7,15 +7,14 @@ book "Little Brother" do
     if softcopy
       name    "Cory Doctorow"
       address "doctorow@craphound.com"
-      license "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported", "http://creativecommons.org/licenses/by-nc-sa/3.0/"
+      license :cc_by_nc_sa # CC Attr-NonComm-ShareAlike 4.0
     else
       name    "Tom Doherty Associates, LLC"
       address "175 Fifth Avenue, New York, NY 10010"
       years   2008
       license :all_rights_reserved
+    end
   end
-
-  table_of_contents :chapters
 
   # Shockingly long intro (come on Cory)
   introduction do
@@ -30,29 +29,37 @@ book "Little Brother" do
   dedication do
     "For Alice, who makes me whole"
   end
-  section "quotes", :file => "introduction/quotes"
+  section "quotes", :file => "intro/quotes"
 
   # Now for the good stuff
   chapter do
     dir 'chapters/1'
 
-    # Mr. Doctorow has dedicated his individual chapters.
-    # A bit unconventional, but still doable.
+    # Mr. Doctorow has dedicated his individual chapters,
+    # each to a different bookstore that made an impact on.
+    # him. A bit unconventional in books, and not explicitly
+    # supported, but still doable. And pretty great.
     file 'dedication'
 
     file 'scenes/w1n5t0n'
     file 'scenes/benson'
     file 'scenes/harajuku'
     file 'snippets/arglarp'
-    file 'scenes/gaitrecog'
+    file 'snippets/gaitrecog'
+    file 'scenes/clue/p1'
+    file 'scenes/clue/p2'
   end
 
   chapter do
     dir 'chapters/2'
     file 'dedication'
-    file 'scenes/arphid'
-    # ... I thiknk you get the idea
+    
+    file 'scenes/nuke'
+    file 'scenes/charles'
+    file 'scenes/thecrew'
+    file 'scenes/clue'
+    file 'scenes/earthquake'
   end
 
-  # ... Many more chapters
+  # ... Many more chapters... you get the idea
 end
