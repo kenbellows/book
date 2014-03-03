@@ -73,65 +73,7 @@ for a simple class hierarchy. Really, all we need is a common base class
 and a bunch of basically empty classes that inherit from it, with perhaps
 some minor changes here and there.
 
-```ruby
-book "Little Brother" do
-  assume 'md'
-
-  author "Cory Doctorow"
-  softcopy = true
-  publisher do
-    if softcopy
-      name    "Cory Doctorow"
-      address "doctorow@craphound.com"
-      license "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported", "http://creativecommons.org/licenses/by-nc-sa/3.0/"
-    else
-      name    "Tom Doherty Associates, LLC"
-      address "175 Fifth Avenue, New York, NY 10010"
-      years   2008
-      license :all_rights_reserved
-  end
-
-  table_of_contents :chapters
-  
-  # Shockingly long intro (come on Cory)
-  introduction do
-    file "intro/intro"
-    section "Do Something",  :file => "intro/dosomething"
-    section "Great Britain", :file => "intro/greatbritain"
-    section "Other Edition", :file => "intro/othereditions"
-    section "The Copyright Thing", :file => "intro/copyright"
-    section "Donations and a Word to Teachers", :file => "intro/donationsandteachers"
-    section "Donations and a Word to Teachers", :file => "intro/donationsandteachers"
-  end
-  dedication do
-    "For Alice, who makes me whole"
-  end
-  section "quotes", :file => "introduction/quotes"
-  
-  # Now for the good stuff
-  chapter do
-    dir 'chapters/1'
-    file 'dedication'
-    file 'scenes/w1n5t0n'
-    file 'scenes/benson'
-    file 'scenes/harajuku'
-    file 'snippets/arglarp'
-    file 'scenes/gaitrecog'
-  end
-  
-  chapter do
-    dir 'chapters/2'
-    file 'dedication'
-    file 'scenes/arphid'
-    # ... I thiknk you get the idea
-  end
-
-  # ... Many more chapters
-end
-```
-
-This is simply a sample of the goal functionality. See the [[TODO.md]]
-file for more details of all the anticipated features.
+See the [[TODO.md]] file for details of all the anticipated features.
 
 ## `book` gem
 
@@ -157,3 +99,32 @@ Functions:
   
   * `commit <message>` - commit book to github
 
+## Usage
+
+[**Good news everyone!**](http://allassistedlivinghomes.com/assisted-living-news/wp-content/uploads/2011/04/good_news_everyone.png)
+
+`book v0.1` has been released. This is the result of about a week of spare-time hacking,
+and as such it's anything but complete. However, it is relatively useful if you want
+to jump in right now!
+
+**To use:**
+
+  1. Check out the repo:
+
+         git pull http://github.com/kenbellows/book.git
+         cd book/src
+
+  2. Try an example! I've put together a pretty thorough example using Cory Doctorow's
+     [*Little Brother*](http://craphound.com/littlebrother/download/), which he has
+     released under the [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 license](http://creativecommons.org/licenses/by-nc-sa/3.0/),
+     meaning guys like me can make use of it as long as I let you know where I got it.
+     
+     At any rate, the example makes use of pretty much every feature available under
+     `book` at the moment. To compile, simply run the following command from the `book/src`
+     directory:
+
+         ruby book.rb ../examples/little_brother/bookfile.rb > little_brother.md
+     
+     Note two things: First, if there's no `bookfile.rb` in the current directory,
+     one must be pointed to elsewhere. Second, currently, `book` **only properly ingests
+     and outputs Markdown**. This will hopefully change soon.
